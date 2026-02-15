@@ -212,8 +212,20 @@ def main(page):
         entries_table,
     ])))
 
-    # place input, stats and table in a single row; chart below
-    page.add(ft.Row([input_card, stats_card, table_card]), chart_card)
+    # place input and stats side-by-side (horizontally scrollable); put chart next, and entries table at the bottom
+    top_row = ft.Row([input_card, stats_card], spacing=10, scroll=ft.ScrollMode.AUTO)
+
+    page.add(
+        ft.Column(
+            [
+                top_row,
+                chart_card,
+                table_card,  # move the detailed entries table to the bottom to avoid horizontal overflow
+            ],
+            scroll=ft.ScrollMode.AUTO,
+            spacing=10,
+        )
+    )
 
     # initial update
     update_stats()
