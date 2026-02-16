@@ -1,1 +1,5 @@
-flet
+customtkinter
+matplotlib
+tkcalendar
+streamlit
+pandas
