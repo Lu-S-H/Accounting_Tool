@@ -3,6 +3,8 @@
 適合部署在 Streamlit Cloud 供個人使用
 """
 
+VERSION = "1.0"
+
 import streamlit as st
 import pandas as pd
 import json
@@ -16,7 +18,7 @@ matplotlib.rcParams['axes.unicode_minus'] = False
 
 # 頁面配置
 st.set_page_config(
-    page_title="💰 個人記帳工具",
+    page_title=f"💰 個人記帳工具 v{VERSION}",
     page_icon="💰",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -427,7 +429,7 @@ def main():
     
     # 側邊欄
     with st.sidebar:
-        st.title("💰 個人記帳工具")
+        st.title(f"💰 個人記帳工具 v{VERSION}")
         st.markdown("---")
         
         page = st.radio(
@@ -449,7 +451,7 @@ def main():
         st.metric("淨收支", f"NT$ {income_total - expense_total:,.2f}")
         
         st.markdown("---")
-        st.caption("© 2026 個人記帳工具")
+        st.caption(f"© 2026 個人記帳工具 v{VERSION}")
         
         # 登出按鈕
         if st.button("🚪 登出", use_container_width=True):
