@@ -3,3 +3,4 @@ matplotlib
 tkcalendar
 streamlit
 pandas
+supabase
